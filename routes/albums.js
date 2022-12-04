@@ -20,6 +20,11 @@ const albums = [
         nameSong: "I'm Good (Blue)",
         artistSong: "David Guetta & Bebe Rexha",
         rankList: 4
+    },
+    {
+        nameSong: "All I Want For Christmas Is You",
+        artistSong: "Mariah Carey",
+        rankList: 5
     }
 ]
 
@@ -30,6 +35,10 @@ router.get('/', (req, res) => {
     console.log(albums);
 
     res.send(albums);
+})
+
+router.post('/', (req, res) => {
+
 })
 
 export default router;
