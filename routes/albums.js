@@ -6,13 +6,14 @@ const albums = [];
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', ( req, res ) => {
 
     res.send(albums);
 
 })
 
-router.post('/', (req, res) => {
+router.post('/', ( req, res ) => {
+    
     console.log("POST ROUTE REACHED!");
 
     const album = req.body;
@@ -20,6 +21,12 @@ router.post('/', (req, res) => {
     albums.push({ ...album, id: uuidv4()});
 
     res.send(`Album with the ${album.nameSong} added to the database! `);
+})
+
+router.get('/:id', ( req, res ) => {
+
+    res.send('THE GET ID ROUTE');
+
 })
 
 export default router;
