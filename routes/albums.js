@@ -1,44 +1,25 @@
 import express from 'express';
 
-const albums = [
-    {
-        nameSong: "Anti-Hero",
-        artistSong: "Taylor Swift",
-        rankList: 1
-    },
-    {
-        nameSong: "Unholy",
-        artistSong: "Sam Smith & Kim Petras",
-        rankList: 2
-    },
-    {
-        nameSong: "Rich Flex",
-        artistSong: "Drake & 21 Savage",
-        rankList: 3
-    },
-    {
-        nameSong: "I'm Good (Blue)",
-        artistSong: "David Guetta & Bebe Rexha",
-        rankList: 4
-    },
-    {
-        nameSong: "All I Want For Christmas Is You",
-        artistSong: "Mariah Carey",
-        rankList: 5
-    }
-]
+import { v4 as uuidv4 } from 'uuid';
+
+const albums = [];
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
 
-    console.log(albums);
-
     res.send(albums);
+
 })
 
 router.post('/', (req, res) => {
+    console.log("POST ROUTE REACHED!");
 
+    const album = req.body;
+
+    albums.push({ ...album, id: uuidv4()});
+
+    res.send(`Album with the ${album.nameSong} added to the database! `);
 })
 
 export default router;
