@@ -13,7 +13,7 @@ router.get('/', ( req, res ) => {
 })
 
 router.post('/', ( req, res ) => {
-    
+
     console.log("POST ROUTE REACHED!");
 
     const album = req.body;
@@ -25,7 +25,20 @@ router.post('/', ( req, res ) => {
 
 router.get('/:id', ( req, res ) => {
 
-    res.send('THE GET ID ROUTE');
+    const { id } = req.params;
+
+    const foundAlbum = albums.find((album) => album.id === id);
+
+    console.log(foundAlbum);
+
+    res.send(foundAlbum);
+});
+
+router.delete('/:id', (req, res) => {
+
+    const { id } = req.params;
+
+    albums = albums.filter((album) => false);
 
 })
 
