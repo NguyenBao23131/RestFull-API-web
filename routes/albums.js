@@ -2,7 +2,7 @@ import express from 'express';
 
 import { v4 as uuidv4 } from 'uuid';
 
-const albums = [];
+let albums = [];
 
 const router = express.Router();
 
@@ -38,7 +38,9 @@ router.delete('/:id', (req, res) => {
 
     const { id } = req.params;
 
-    albums = albums.filter((album) => false);
+    albums = albums.filter((album) => album.id !== id);
+
+    res.send(`Album with the id ${id} deleted from the database.`)
 
 })
 
