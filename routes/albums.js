@@ -44,4 +44,24 @@ router.delete('/:id', (req, res) => {
 
 })
 
+router.patch('/:id', (req, res) => {
+    const { id } = req.params;
+
+    const { nameSong, artistSong, rankList } = req.body;
+
+    const album = albums.find((album) => album.id === id);
+
+    if(nameSong){
+        album.nameSong = nameSong;
+    }
+
+    if(artistSong) {
+        album.artistSong = artistSong;
+    }
+
+    if(rankList) {
+        album.rankList = rankList;
+    }
+})
+
 export default router;
