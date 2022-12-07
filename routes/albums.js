@@ -62,6 +62,8 @@ router.patch('/:id', (req, res) => {
     if(rankList) {
         album.rankList = rankList;
     }
+
+    res.send(`User with the id ${id} has been updated `)
 })
 
 export default router;
